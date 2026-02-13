@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --querido-gradient: linear-gradient(135deg, #6b21a8 0%, #ea580c 100%);
+  --bg-page: #0f172a;
+  --text-page: #f1f5f9;
+  --card-bg: rgba(30, 41, 59, 0.8);
+  --border-color: rgba(71, 85, 105, 0.5);
+  --input-bg: rgba(51, 65, 85, 0.5);
+  --accent-from: #9333ea;
+  --accent-to: #ea580c;
+}
+
+/* Fallback para quando Tailwind não carregar */
+body {
+  background-color: var(--bg-page);
+  color: var(--text-page);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-900 text-slate-100 min-h-screen;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
