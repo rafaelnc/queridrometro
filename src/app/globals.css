@@ -3,19 +3,28 @@
 @tailwind utilities;
 
 :root {
-  --querido-gradient: linear-gradient(135deg, #6b21a8 0%, #ea580c 100%);
-  --bg-page: #0f172a;
-  --text-page: #f1f5f9;
-  --card-bg: rgba(30, 41, 59, 0.8);
-  --border-color: rgba(71, 85, 105, 0.5);
-  --input-bg: rgba(51, 65, 85, 0.5);
-  --accent-from: #9333ea;
-  --accent-to: #ea580c;
+  --querido-gradient: linear-gradient(135deg, #e8125c 0%, #ff6a00 55%, #ffc400 100%);
+  --bg-page: #2f1105;
+  --text-page: #fdf0e0;
+  --card-bg: rgba(77, 32, 12, 0.85);
+  --border-color: rgba(113, 54, 26, 0.6);
+  --input-bg: rgba(113, 54, 26, 0.5);
+  --accent-from: #e8125c;
+  --accent-to: #ff6a00;
+  --k-orange: #ff6a00;
+  --k-burnt: #e4540f;
+  --k-yellow: #ffc400;
+  --k-pink: #e8125c;
+  --k-cream: #fdf0e0;
 }
 
-/* Fallback para quando Tailwind não carregar */
+/* Fundo geral: padrão geométrico creme sobre laranja, escurecido para leitura */
 body {
   background-color: var(--bg-page);
+  background-image: linear-gradient(rgba(47, 17, 5, 0.9), rgba(47, 17, 5, 0.9)),
+    url("/kabaret-pattern-cream.svg");
+  background-size: auto, 240px 240px;
+  background-attachment: fixed;
   color: var(--text-page);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -24,7 +33,45 @@ body {
 
 @layer base {
   body {
-    @apply bg-slate-900 text-slate-100 min-h-screen;
+    @apply text-slate-100 min-h-screen font-sans;
+  }
+}
+
+@layer components {
+  /* Faixa do cabeçalho com o padrão colorido (como o pôster) */
+  .kabaret-band {
+    position: relative;
+    background-color: var(--k-orange);
+    background-image: url("/kabaret-pattern.svg");
+    background-size: 240px 240px;
+    border-bottom: 4px solid var(--k-yellow);
+    box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  }
+  .kabaret-band::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(228, 84, 15, 0.92), rgba(228, 84, 15, 0.55) 50%, rgba(228, 84, 15, 0.92));
+    pointer-events: none;
+  }
+  .kabaret-band > * {
+    position: relative;
+  }
+  .kabaret-band a,
+  .kabaret-band button {
+    color: var(--k-cream);
+  }
+  .kabaret-nav-link {
+    @apply rounded-full px-3 py-1.5 text-sm font-semibold transition;
+    color: var(--k-cream);
+    background: rgba(47, 17, 5, 0.25);
+  }
+  .kabaret-nav-link:hover {
+    background: rgba(47, 17, 5, 0.5);
+  }
+  .kabaret-nav-link.is-active {
+    background: var(--k-cream);
+    color: var(--k-burnt) !important;
   }
 }
 

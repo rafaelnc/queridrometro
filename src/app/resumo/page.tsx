@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
+import KabaretLogo from "@/components/KabaretLogo";
 type ParticipantSummary = {
   id: number;
   name: string;
@@ -45,7 +46,7 @@ export default function ResumoPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-900">
+      <div className="min-h-screen flex items-center justify-center">
         <p className="text-slate-400">Carregando...</p>
       </div>
     );
@@ -55,25 +56,25 @@ export default function ResumoPage() {
   const duplicated = [...list, ...list];
 
   return (
-    <div className="min-h-screen bg-slate-900 flex flex-col">
-      <header className="flex-shrink-0 border-b border-slate-700/50 bg-slate-900/95 backdrop-blur z-10">
-        <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div className="min-h-screen flex flex-col">
+      <header className="kabaret-band flex-shrink-0 z-10">
+        <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             {config?.logo && (
-              <div className="w-9 h-9 rounded-xl bg-slate-900/60 border border-slate-700 overflow-hidden flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-[#fdf0e0] overflow-hidden flex items-center justify-center">
                 <img src={config.logo} alt={config.title} className="w-full h-full object-contain" />
               </div>
             )}
-            <h1 className="text-xl font-bold bg-gradient-to-r from-purple-400 to-orange-400 bg-clip-text text-transparent">
-              {(config?.title || "Queridômetro") + " do dia"}
-            </h1>
+            <KabaretLogo size="md" />
           </div>
-          <Link
-            href="/votar"
-            className="text-slate-400 hover:text-white text-sm font-medium"
-          >
-            Voltar
-          </Link>
+          <div className="flex items-center gap-2">
+            <span className="hidden sm:inline font-display font-bold text-sm text-[#fdf0e0] uppercase tracking-wider">
+              {(config?.title || "Queridômetro") + " do dia"}
+            </span>
+            <Link href="/votar" className="kabaret-nav-link">
+              ← Voltar
+            </Link>
+          </div>
         </div>
       </header>
 

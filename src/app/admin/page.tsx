@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
+import KabaretLogo from "@/components/KabaretLogo";
 import { useRouter } from "next/navigation";
 
 type Participant = { id: number; name: string; photo: string | null };
@@ -274,7 +275,7 @@ export default function AdminPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-900">
+      <div className="min-h-screen flex items-center justify-center">
         <p className="text-slate-400">Carregando...</p>
       </div>
     );
@@ -283,41 +284,38 @@ export default function AdminPage() {
   if (!user?.isMaster) return null;
 
   return (
-    <div className="min-h-screen bg-slate-900">
-      <header className="border-b border-slate-700/50 bg-slate-900/90">
-        <div className="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
-          <Link
-            href="/votar"
-            className="text-slate-400 hover:text-white text-sm font-medium"
-          >
-            ← Voltar
-          </Link>
-          <div className="flex gap-2">
+    <div className="min-h-screen">
+      <header className="kabaret-band">
+        <div className="max-w-3xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <Link href="/votar" className="kabaret-nav-link">
+              ←
+            </Link>
+            <KabaretLogo size="sm" />
+          </div>
+          <div className="flex flex-wrap justify-center gap-2">
             <button
               type="button"
               onClick={() => setTab("participantes")}
-              className={`px-3 py-1.5 rounded-lg text-sm font-medium ${tab === "participantes" ? "bg-amber-500/20 text-amber-400" : "text-slate-400 hover:text-white"}`}
+              className={`kabaret-nav-link ${tab === "participantes" ? "is-active" : ""}`}
             >
               Participantes
             </button>
             <button
               type="button"
               onClick={() => setTab("emojis")}
-              className={`px-3 py-1.5 rounded-lg text-sm font-medium ${tab === "emojis" ? "bg-amber-500/20 text-amber-400" : "text-slate-400 hover:text-white"}`}
+              className={`kabaret-nav-link ${tab === "emojis" ? "is-active" : ""}`}
             >
               Emojis
             </button>
             <button
               type="button"
               onClick={() => setTab("config")}
-              className={`px-3 py-1.5 rounded-lg text-sm font-medium ${tab === "config" ? "bg-amber-500/20 text-amber-400" : "text-slate-400 hover:text-white"}`}
+              className={`kabaret-nav-link ${tab === "config" ? "is-active" : ""}`}
             >
               Configuração
             </button>
-            <Link
-              href="/admin/resumo"
-              className="text-slate-400 hover:text-amber-400 text-sm font-medium"
-            >
+            <Link href="/admin/resumo" className="kabaret-nav-link">
               Resumo
             </Link>
           </div>

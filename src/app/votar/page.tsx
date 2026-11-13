@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import KabaretLogo from "@/components/KabaretLogo";
 type Participant = { id: number; name: string; photo: string | null };
 type EmojiItem = { id: number; emoji: string; label: string };
 type VotesMap = Record<number, string>;
@@ -94,37 +95,29 @@ export default function VotarPage() {
   const selected = selectedId ? participants.find((p) => p.id === selectedId) : null;
 
   return (
-    <div className="min-h-screen bg-slate-900">
-      <header className="sticky top-0 z-10 border-b border-slate-700/50 bg-slate-900/90 backdrop-blur">
-        <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div className="min-h-screen">
+      <header className="kabaret-band sticky top-0 z-10">
+        <div className="max-w-4xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             {config?.logo && (
-              <div className="w-9 h-9 rounded-xl bg-slate-900/60 border border-slate-700 overflow-hidden flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-[#fdf0e0] overflow-hidden flex items-center justify-center">
                 <img src={config.logo} alt={config.title} className="w-full h-full object-contain" />
               </div>
             )}
-            <h1 className="text-xl font-bold bg-gradient-to-r from-purple-400 to-orange-400 bg-clip-text text-transparent">
-              {config?.title || "Queridômetro"}
-            </h1>
+            <KabaretLogo size="md" />
           </div>
-          <nav className="flex items-center gap-3">
-            <Link
-              href="/resumo"
-              className="text-slate-300 hover:text-white text-sm font-medium"
-            >
+          <nav className="flex flex-wrap items-center justify-center gap-2">
+            <Link href="/votar" className="kabaret-nav-link is-active">
+              Votar
+            </Link>
+            <Link href="/resumo" className="kabaret-nav-link">
               Resumo do dia
             </Link>
-            <Link
-              href="/perfil"
-              className="text-slate-300 hover:text-white text-sm font-medium"
-            >
+            <Link href="/perfil" className="kabaret-nav-link">
               Perfil
             </Link>
             {user.isMaster && (
-              <Link
-                href="/admin"
-                className="text-amber-400 hover:text-amber-300 text-sm font-medium"
-              >
+              <Link href="/admin" className="kabaret-nav-link">
                 Admin
               </Link>
             )}
@@ -135,7 +128,7 @@ export default function VotarPage() {
                 router.push("/login");
                 router.refresh();
               }}
-              className="text-slate-400 hover:text-white text-sm"
+              className="kabaret-nav-link"
             >
               Sair
             </button>

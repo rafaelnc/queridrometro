@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
+import KabaretLogo from "@/components/KabaretLogo";
 import { useRouter } from "next/navigation";
 
 type AppConfig = { title: string; logo: string | null };
@@ -96,24 +97,21 @@ export default function PerfilPage() {
   if (!user) return null;
 
   return (
-    <div className="min-h-screen bg-slate-900">
-      <header className="border-b border-slate-700/50 bg-slate-900/90">
-        <div className="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
-          <Link
-            href="/votar"
-            className="text-slate-400 hover:text-white text-sm font-medium"
-          >
+    <div className="min-h-screen">
+      <header className="kabaret-band">
+        <div className="max-w-2xl mx-auto px-4 py-4 flex items-center justify-between gap-3">
+          <Link href="/votar" className="kabaret-nav-link">
             ← Voltar
           </Link>
           <div className="flex items-center gap-3">
             {config?.logo && (
-              <div className="w-8 h-8 rounded-xl bg-slate-900/60 border border-slate-700 overflow-hidden flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-[#fdf0e0] overflow-hidden flex items-center justify-center">
                 <img src={config.logo} alt={config.title} className="w-full h-full object-contain" />
               </div>
             )}
-            <h1 className="text-lg font-semibold text-white">Meu perfil</h1>
+            <KabaretLogo size="md" />
           </div>
-          <span />
+          <span className="kabaret-nav-link is-active">Meu perfil</span>
         </div>
       </header>
 

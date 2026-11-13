@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import KabaretLogo from "@/components/KabaretLogo";
 import { useRouter } from "next/navigation";
 
 type ParticipantSummary = {
@@ -81,7 +82,7 @@ export default function AdminResumoPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-900">
+      <div className="min-h-screen flex items-center justify-center">
         <p className="text-slate-400">Carregando...</p>
       </div>
     );
@@ -93,25 +94,21 @@ export default function AdminResumoPage() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-900">
-      <header className="border-b border-slate-700/50 bg-slate-900/90 sticky top-0 z-10">
-        <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between flex-wrap gap-2">
-          <Link
-            href="/admin"
-            className="text-slate-400 hover:text-white text-sm font-medium"
-          >
+    <div className="min-h-screen">
+      <header className="kabaret-band sticky top-0 z-10">
+        <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between flex-wrap gap-3">
+          <Link href="/admin" className="kabaret-nav-link">
             ← Admin
           </Link>
           <div className="flex items-center gap-3">
             {config?.logo && (
-              <div className="w-8 h-8 rounded-xl bg-slate-900/60 border border-slate-700 overflow-hidden flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-[#fdf0e0] overflow-hidden flex items-center justify-center">
                 <img src={config.logo} alt={config.title} className="w-full h-full object-contain" />
               </div>
             )}
-            <h1 className="text-lg font-semibold text-amber-400">
-              {(config?.title || "Queridômetro") + " – resumo por período"}
-            </h1>
+            <KabaretLogo size="md" />
           </div>
+          <span className="kabaret-nav-link is-active">Resumo por período</span>
         </div>
       </header>
 

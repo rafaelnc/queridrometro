@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+  <rect width="240" height="240" fill="#ff6a00"/>
+  <!-- linha 1 -->
+  <path d="M0 0h60v60H0z" fill="#ffc400"/><path d="M0 0a60 60 0 0 1 60 60H0z" fill="#e8125c"/>
+  <path d="M60 0h60v60H60z" fill="#f24a0c"/><path d="M60 60L120 0v60z" fill="#ff8a00"/>
+  <path d="M120 0h60v60h-60z" fill="#ff8a00"/><path d="M180 60a60 60 0 0 0-60-60v60z" fill="#ffc400"/>
+  <path d="M180 0h60v60h-60z" fill="#e8125c"/><circle cx="210" cy="30" r="14" fill="#ffc400"/>
+  <!-- linha 2 -->
+  <path d="M0 60h60v60H0z" fill="#ff6a00"/><path d="M6 66h8v48H6zM22 66h8v48h-8zM38 66h8v48h-8z" fill="#ffc400"/>
+  <path d="M60 60h60v60H60z" fill="#ffc400"/><path d="M60 120a60 60 0 0 1 60-60v60z" fill="#f24a0c"/>
+  <path d="M120 60h60v60h-60z" fill="#f24a0c"/><path d="M120 60l60 60h-60z" fill="#e8125c"/>
+  <path d="M180 60h60v60h-60z" fill="#ff8a00"/><path d="M180 60a60 60 0 0 1 60 60h-60z" fill="#ffc400"/>
+  <!-- linha 3 -->
+  <path d="M0 120h60v60H0z" fill="#e8125c"/><path d="M60 180a60 60 0 0 0-60-60v60z" fill="#ff8a00"/>
+  <path d="M60 120h60v60H60z" fill="#ff8a00"/><circle cx="90" cy="150" r="16" fill="#ffc400"/>
+  <path d="M120 120h60v60h-60z" fill="#ffc400"/><path d="M120 120h60l-60 60z" fill="#ff6a00"/>
+  <path d="M180 120h60v60h-60z" fill="#f24a0c"/><path d="M180 126h60v8h-60zM180 142h60v8h-60zM180 158h60v8h-60z" fill="#ffc400"/>
+  <!-- linha 4 -->
+  <path d="M0 180h60v60H0z" fill="#ffc400"/><path d="M0 180l60 60H0z" fill="#f24a0c"/>
+  <path d="M60 180h60v60H60z" fill="#f24a0c"/><path d="M60 240a60 60 0 0 1 60-60v60z" fill="#e8125c"/>
+  <path d="M120 180h60v60h-60z" fill="#e8125c"/><path d="M120 180a60 60 0 0 1 60 60h-60z" fill="#ff8a00"/>
+  <path d="M180 180h60v60h-60z" fill="#ff8a00"/><path d="M240 180a60 60 0 0 0-60 60h60z" fill="#ffc400"/>
+</svg>
